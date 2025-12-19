@@ -1,152 +1,151 @@
-<p>&lt;!******* html&gt;</p>
-<p>&lt;html lang=&quot;en&quot;&gt;</p>
-<p>&lt;head&gt;</p>
-<p>&lt;meta charset=&quot;UTF-8&quot;&gt;</p>
-<p>&lt;title&gt;Do *** Have the Courage?&lt;/title&gt;</p>
-<p><br></p>
-<p>&lt;style&gt;</p>
-<p>* {</p>
-<p>&nbsp; &nbsp; margin: 0;</p>
-<p>&nbsp; &nbsp; padding: 0;</p>
-<p>&nbsp; &nbsp; box-sizing: border-box;</p>
-<p>}</p>
-<p><br></p>
-<p>body {</p>
-<p>&nbsp; &nbsp; height: 100vh;</p>
-<p>&nbsp; &nbsp; background: black;</p>
-<p>&nbsp; &nbsp; overflow: hidden;</p>
-<p>&nbsp; &nbsp; font-family: Arial, sans-serif;</p>
-<p>&nbsp; &nbsp; color: white;</p>
-<p>}</p>
-<p><br></p>
-<p>/* 🔥 FIRE ********* */</p>
-<p>.fire {</p>
-<p>&nbsp; &nbsp; position: absolute;</p>
-<p>&nbsp; &nbsp; width: 100%;</p>
-<p>&nbsp; &nbsp; height: 100%;</p>
-<p>&nbsp; &nbsp; background:</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; radial-gradient(circle at 50% 100%, #ff4500, transparent 60%),</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; radial-gradient(circle at 30% 100%, #ff0000, transparent 55%),</p>
-<p>&nbsp; &nbsp; &nbsp; &nbsp; radial-gradient(circle at 70% 100%, #ff8c00, *********** 55%);</p>
-<p>&nbsp; &nbsp; animation: flames 1.5s infinite alternate;</p>
-<p>&nbsp; &nbsp; filter: blur(18px);</p>
-<p>}</p>
-<p><br></p>
-<p>@keyframes flames {</p>
-<p>&nbsp; &nbsp; 0% { transform: scaleY(1); opacity: 0.7; }</p>
-<p>&nbsp; &nbsp; 100% { transform: scaleY(1.25); opacity: 1; }</p>
-<p>}</p>
-<p><br></p>
-<p>/* SCREENS */</p>
-<p>.container, .message-screen {</p>
-<p>&nbsp; &nbsp; position: relative;</p>
-<p>&nbsp; &nbsp; z-index: 2;</p>
-<p>&nbsp; &nbsp; height: 100%;</p>
-<p>&nbsp; &nbsp; display: flex;</p>
-<p>&nbsp; &nbsp; flex-direction: column;</p>
-<p>&nbsp; &nbsp; justify-content: center;</p>
-<p>&nbsp; &nbsp; align-items: center;</p>
-<p>&nbsp; &nbsp; text-align: center;</p>
-<p>}</p>
-<p><br></p>
-<p>.skull {</p>
-<p>&nbsp; &nbsp; font-size: 80px;</p>
-<p>&nbsp; &nbsp; margin-bottom: 25px;</p>
-<p>}</p>
-<p><br></p>
-<p>button {</p>
-<p>&nbsp; &nbsp; padding: 15px 40px;</p>
-<p>&nbsp; &nbsp; font-size: 18px;</p>
-<p>&nbsp; &nbsp; background: crimson;</p>
-<p>&nbsp; &nbsp; color: white;</p>
-<p>&nbsp; &nbsp; border: none;</p>
-<p>&nbsp; &nbsp; border-radius: 6px;</p>
-<p>&nbsp; &nbsp; cursor: pointer;</p>
-<p>&nbsp; &nbsp; box-shadow: 0 0 25px red;</p>
-<p>&nbsp; &nbsp; transition: transform 0.2s;</p>
-<p>}</p>
-<p><br></p>
-<p>button:hover {</p>
-<p>&nbsp; &nbsp; transform: scale(1.15);</p>
-<p>}</p>
-<p><br></p>
-<p>/* 🎉 MESSAGE */</p>
-<p>.message-screen {</p>
-<p>&nbsp; &nbsp; display: none;</p>
-<p>&nbsp; &nbsp; animation: fadeIn 1.5s ease-in-out forwards;</p>
-<p>}</p>
-<p><br></p>
-<p>.heart {</p>
-<p>&nbsp; &nbsp; font-size: 70px;</p>
-<p>&nbsp; &nbsp; margin-bottom: 20px;</p>
-<p>}</p>
-<p><br></p>
-<p>.msg {</p>
-<p>&nbsp; &nbsp; font-size: 22px;</p>
-<p>&nbsp; &nbsp; margin: 10px 0;</p>
-<p>&nbsp; &nbsp; opacity: 0;</p>
-<p>&nbsp; &nbsp; animation: ******** ** forwards;</p>
-<p>}</p>
-<p><br></p>
-<p>@keyframes fadeIn {</p>
-<p>&nbsp; &nbsp; from { opacity: 0; }</p>
-<p>&nbsp; &nbsp; to { opacity: 1; }</p>
-<p>}</p>
-<p><br></p>
-<p>@keyframes showText {</p>
-<p>&nbsp; &nbsp; from { opacity: 0; transform: translateY(25px); }</p>
-<p>&nbsp; &nbsp; to { opacity: 1; transform: translateY(0); }</p>
-<p>}</p>
-<p>&lt;/style&gt;</p>
-<p>&lt;/head&gt;</p>
-<p><br></p>
-<p>&lt;body&gt;</p>
-<p><br></p>
-<p>&lt;!-- 🔥 FIRE --&gt;</p>
-<p>&lt;div class=&quot;fire&quot;&gt;&lt;/div&gt;</p>
-<p><br></p>
-<p>&lt;!-- 🎵 AUDIO --&gt;</p>
-<p>&lt;audio id=&quot;horrorMusic&quot; autoplay loop&gt;</p>
-<p>&nbsp; &nbsp; &lt;source src=&quot;Creepy Little Girl ******* Lalala Scary ****** ***** (HD) (FREE).mp3&quot; type=&quot;audio/mpeg&quot;&gt;</p>
-<p>&lt;/audio&gt;</p>
-<p><br></p>
-<p>&lt;audio id=&quot;happyMusic&quot; loop&gt;</p>
-<p>&nbsp; &nbsp; &lt;****** src=&quot;happy happy happy.mp3&quot; type=&quot;audio/mpeg&quot;&gt;</p>
-<p>&lt;/audio&gt;</p>
-<p><br></p>
-<p>&lt;!-- ☠️ ***** --&gt;</p>
-<p>&lt;div class=&quot;container&quot; id=&quot;startScreen&quot;&gt;</p>
-<p>&nbsp; &nbsp; &lt;div class=&quot;skull&quot;&gt;☠️&lt;/div&gt;</p>
-<p>&nbsp; &nbsp; &lt;button onclick=&quot;startSurprise()&quot;&gt;** *** **** the courage, touch it&lt;/button&gt;</p>
-<p>&lt;/div&gt;</p>
-<p><br></p>
-<p>&lt;!-- ❤️ ******** MESSAGE --&gt;</p>
-<p>&lt;div class=&quot;message-screen&quot; id=&quot;messageScreen&quot;&gt;</p>
-<p>&nbsp; &nbsp; &lt;div class=&quot;heart&quot;&gt;❤️&lt;/div&gt;</p>
-<p>&nbsp; &nbsp; &lt;div class=&quot;msg&quot; style=&quot;animation-delay:0s;&quot;&gt;Oh ******* much, just ****** to say&lt;/div&gt;</p>
-<p>&nbsp; &nbsp; &lt;*** class=&quot;msg&quot; style=&quot;animation-delay:1s;&quot;&gt;🎉 Happy ******** 🎂&lt;/div&gt;</p>
-<p>&nbsp; &nbsp; &lt;div class=&quot;msg&quot; style=&quot;animation-delay:2s;&quot;&gt;Many many happy returns of the day 🎂&lt;/div&gt;</p>
-<p>&nbsp; &nbsp; &lt;div class=&quot;msg&quot; style=&quot;animation-delay:3s;&quot;&gt;** proud of what you did.&lt;/div&gt;</p>
-<p>&nbsp; &nbsp; &lt;div class=&quot;msg&quot; style=&quot;animation-delay:4s;&quot;&gt;** happy for what ** happening.&lt;/div&gt;</p>
-<p>&nbsp; &nbsp; &lt;div class=&quot;msg&quot; style=&quot;animation-delay:5s;&quot;&gt;Always **** for the best in future.&lt;/div&gt;</p>
-<p>&nbsp; &nbsp; &lt;div class=&quot;msg&quot; style=&quot;animation-delay:6s;&quot;&gt;Be happy for the rest of your life 💖&lt;/div&gt;</p>
-<p>&lt;/div&gt;</p>
-<p><br></p>
-<p>&lt;script&gt;</p>
-<p>function startSurprise() {</p>
-<p>&nbsp; &nbsp; const horror = document.getElementById(&quot;horrorMusic&quot;);</p>
-<p>&nbsp; &nbsp; const happy = document.getElementById(&quot;happyMusic&quot;);</p>
-<p><br></p>
-<p>&nbsp; &nbsp; horror.pause();</p>
-<p>&nbsp; &nbsp; horror.currentTime = 0;</p>
-<p><br></p>
-<p>&nbsp; &nbsp; happy.play();</p>
-<p><br></p>
-<p>&nbsp; &nbsp; document.getElementById(&quot;startScreen&quot;).style.******* = &quot;none&quot;;</p>
-<p>&nbsp; &nbsp; document.getElementById(&quot;messageScreen&quot;).style.display = &quot;flex&quot;;</p>
-<p>}</p>
-<p>&lt;/script&gt;</p>
-<p><br></p>
-<p>&lt;/body&gt;</p>
-<p>&lt;/html&gt;</p>
-<div style="color: red">Word to HTML trial - please <a href="https://wordtohtml.net/site/payment">Go PRO</a> to get whole HTML.</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Do You Have the Courage?</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    background: black;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    color: white;
+}
+
+/* 🔥 FIRE ANIMATION */
+.fire {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background:
+        radial-gradient(circle at 50% 100%, #ff4500, transparent 60%),
+        radial-gradient(circle at 30% 100%, #ff0000, transparent 55%),
+        radial-gradient(circle at 70% 100%, #ff8c00, transparent 55%);
+    animation: flames 1.5s infinite alternate;
+    filter: blur(18px);
+}
+
+@keyframes flames {
+    0% { transform: scaleY(1); opacity: 0.7; }
+    100% { transform: scaleY(1.25); opacity: 1; }
+}
+
+/* SCREENS */
+.container, .message-screen {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.skull {
+    font-size: 80px;
+    margin-bottom: 25px;
+}
+
+button {
+    padding: 15px 40px;
+    font-size: 18px;
+    background: crimson;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    box-shadow: 0 0 25px red;
+    transition: transform 0.2s;
+}
+
+button:hover {
+    transform: scale(1.15);
+}
+
+/* 🎉 MESSAGE */
+.message-screen {
+    display: none;
+    animation: fadeIn 1.5s ease-in-out forwards;
+}
+
+.heart {
+    font-size: 70px;
+    margin-bottom: 20px;
+}
+
+.msg {
+    font-size: 22px;
+    margin: 10px 0;
+    opacity: 0;
+    animation: showText 1s forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes showText {
+    from { opacity: 0; transform: translateY(25px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+</style>
+</head>
+
+<body>
+
+<!-- 🔥 FIRE -->
+<div class="fire"></div>
+
+<!-- 🎵 AUDIO -->
+<audio id="horrorMusic" autoplay loop>
+    <source src="Creepy Little Girl Singing Lalala  Scary Horror Voice (HD) (FREE).mp3" type="audio/mpeg">
+</audio>
+
+<audio id="happyMusic" loop>
+    <source src="happy happy happy.mp3" type="audio/mpeg">
+</audio>
+
+<!-- ☠️ START -->
+<div class="container" id="startScreen">
+    <div class="skull">☠️</div>
+    <button onclick="startSurprise()">If you have the courage, touch it</button>
+</div>
+
+<!-- ❤️ BIRTHDAY MESSAGE -->
+<div class="message-screen" id="messageScreen">
+    <div class="heart">❤️</div>
+    <div class="msg" style="animation-delay:0s;">Oh nothing much, just wanted to say</div>
+    <div class="msg" style="animation-delay:1s;">🎉 Happy Birthday 🎂</div>
+    <div class="msg" style="animation-delay:2s;">Many many happy returns of the day 🎂</div>
+    <div class="msg" style="animation-delay:3s;">Be proud of what you did.</div>
+    <div class="msg" style="animation-delay:4s;">Be happy for what is happening.</div>
+    <div class="msg" style="animation-delay:5s;">Always look for the best in future.</div>
+    <div class="msg" style="animation-delay:6s;">Be happy for the rest of your life 💖</div>
+</div>
+
+<script>
+function startSurprise() {
+    const horror = document.getElementById("horrorMusic");
+    const happy = document.getElementById("happyMusic");
+
+    horror.pause();
+    horror.currentTime = 0;
+
+    happy.play();
+
+    document.getElementById("startScreen").style.display = "none";
+    document.getElementById("messageScreen").style.display = "flex";
+}
+</script>
+
+</body>
+</html>
