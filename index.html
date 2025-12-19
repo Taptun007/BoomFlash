@@ -5,97 +5,127 @@
 <title>Do You Have the Courage?</title>
 
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+    height:100vh;
+    background:black;
+    overflow:hidden;
+    font-family:Arial, sans-serif;
+    color:white;
 }
 
-body {
-    height: 100vh;
-    background: black;
-    overflow: hidden;
-    font-family: Arial, sans-serif;
-    color: white;
-}
-
-/* 🔥 FIRE BACKGROUND */
-.fire {
-    position: fixed;
-    width: 100%;
-    height: 100%;
+/* 🔥 FIRE */
+.fire{
+    position:fixed;
+    inset:0;
     background:
-        radial-gradient(circle at 50% 100%, #ff4500, transparent 60%),
-        radial-gradient(circle at 30% 100%, #ff0000, transparent 55%),
-        radial-gradient(circle at 70% 100%, #ff8c00, transparent 55%);
-    animation: flames 1.5s infinite alternate;
-    filter: blur(18px);
-    z-index: 0;
+      radial-gradient(circle at 50% 100%, #ff3c00, transparent 60%),
+      radial-gradient(circle at 30% 100%, #ff0000, transparent 55%),
+      radial-gradient(circle at 70% 100%, #ff8c00, transparent 55%);
+    animation: flames 1s infinite alternate;
+    filter: blur(20px);
+    z-index:0;
 }
 
-@keyframes flames {
-    0% { transform: scaleY(1); opacity: 0.7; }
-    100% { transform: scaleY(1.25); opacity: 1; }
+@keyframes flames{
+    from{transform:scaleY(1);opacity:.6;}
+    to{transform:scaleY(1.35);opacity:1;}
 }
 
 /* SCREENS */
-.screen {
-    position: relative;
-    z-index: 2;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+.screen{
+    position:relative;
+    z-index:2;
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
 }
 
-.skull {
-    font-size: 80px;
-    margin-bottom: 25px;
+.skull{
+    font-size:90px;
+    margin-bottom:30px;
+    animation:flicker 1.5s infinite;
 }
 
-button {
-    padding: 15px 40px;
-    font-size: 18px;
-    background: crimson;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    box-shadow: 0 0 25px red;
+@keyframes flicker{
+    0%,100%{opacity:1;}
+    50%{opacity:.5;}
 }
 
-button:active {
-    transform: scale(0.95);
+button{
+    padding:16px 42px;
+    font-size:18px;
+    background:crimson;
+    color:white;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+    box-shadow:0 0 30px red;
+}
+
+/* SHAKE */
+.shake{
+    animation:shake .6s;
+}
+@keyframes shake{
+    0%{transform:translate(0);}
+    25%{transform:translate(-8px,8px);}
+    50%{transform:translate(8px,-8px);}
+    75%{transform:translate(-8px,-8px);}
+    100%{transform:translate(0);}
 }
 
 /* 🎉 MESSAGE */
-#messageScreen {
-    display: none;
-    animation: fadeIn 1.5s ease-in-out forwards;
+#messageScreen{display:none;animation:fadeIn 1.5s forwards;}
+
+.heart{
+    font-size:75px;
+    margin-bottom:20px;
+    animation:pulse 1.2s infinite;
 }
 
-.heart {
-    font-size: 70px;
-    margin-bottom: 20px;
+@keyframes pulse{
+    0%,100%{transform:scale(1);}
+    50%{transform:scale(1.15);}
 }
 
-.msg {
-    font-size: 22px;
-    margin: 10px 0;
-    opacity: 0;
-    animation: showText 1s forwards;
+.msg{
+    font-size:23px;
+    margin:10px 0;
+    opacity:0;
+    animation:showText 1s forwards;
+    text-shadow:0 0 10px gold,0 0 20px orange;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+@keyframes fadeIn{
+    from{opacity:0;}
+    to{opacity:1;}
 }
 
-@keyframes showText {
-    from { opacity: 0; transform: translateY(25px); }
-    to { opacity: 1; transform: translateY(0); }
+@keyframes showText{
+    from{opacity:0;transform:translateY(25px);}
+    to{opacity:1;transform:translateY(0);}
+}
+
+/* 🎆 FIREWORKS */
+.firework{
+    position:fixed;
+    width:6px;
+    height:6px;
+    border-radius:50%;
+    animation:explode 1.2s ease-out forwards;
+    z-index:3;
+}
+
+@keyframes explode{
+    to{
+        transform:translate(var(--x),var(--y));
+        opacity:0;
+    }
 }
 </style>
 </head>
@@ -105,8 +135,86 @@ button:active {
 <div class="fire"></div>
 
 <!-- 🎵 AUDIO -->
-<audio id="horrorMusic" preload="auto" loop>
+<audio id="horrorMusic" loop preload="auto">
   <source src="horror.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="happyMusic" loop preload="auto">
+  <source src="happy.mp3" type="audio/mpeg">
+</audio>
+
+<!-- ☠️ START -->
+<div class="screen" id="startScreen">
+    <div class="skull">☠️</div>
+    <button onclick="start()">If you have the courage, touch it</button>
+</div>
+
+<!-- ❤️ MESSAGE -->
+<div class="screen" id="messageScreen">
+    <div class="heart">❤️</div>
+    <div class="msg" style="animation-delay:0s;">Oh nothing much, just wanted to say</div>
+    <div class="msg" style="animation-delay:1s;">🎉 Happy Birthday 🎂</div>
+    <div class="msg" style="animation-delay:2s;">Many many happy returns of the day 🎂</div>
+    <div class="msg" style="animation-delay:3s;">Be proud of what you did.</div>
+    <div class="msg" style="animation-delay:4s;">Be happy for what is happening.</div>
+    <div class="msg" style="animation-delay:5s;">Always look for the best in future.</div>
+    <div class="msg" style="animation-delay:6s;">Be happy for the rest of your life 💖</div>
+</div>
+
+<script>
+let done=false;
+
+function start(){
+    if(done) return;
+    done=true;
+
+    const horror=document.getElementById("horrorMusic");
+    const happy=document.getElementById("happyMusic");
+
+    document.body.classList.add("shake");
+    horror.volume=1;
+    horror.play();
+
+    let fade=setInterval(()=>{
+        if(horror.volume>0.1){
+            horror.volume-=0.1;
+        }else{
+            clearInterval(fade);
+            horror.pause();
+            horror.currentTime=0;
+
+            happy.volume=0;
+            happy.play();
+
+            let fadeIn=setInterval(()=>{
+                if(happy.volume<1) happy.volume+=0.1;
+                else clearInterval(fadeIn);
+            },120);
+
+            document.getElementById("startScreen").style.display="none";
+            document.getElementById("messageScreen").style.display="flex";
+            fireworks();
+        }
+    },150);
+}
+
+function fireworks(){
+    for(let i=0;i<80;i++){
+        const f=document.createElement("div");
+        f.className="firework";
+        f.style.left=Math.random()*100+"vw";
+        f.style.top=Math.random()*100+"vh";
+        f.style.background=`hsl(${Math.random()*360},100%,60%)`;
+        f.style.setProperty("--x",(Math.random()*300-150)+"px");
+        f.style.setProperty("--y",(Math.random()*300-150)+"px");
+        document.body.appendChild(f);
+        setTimeout(()=>f.remove(),1200);
+    }
+}
+</script>
+
+</body>
+</html>  <source src="horror.mp3" type="audio/mpeg">
 </audio>
 
 <audio id="happyMusic" preload="auto" loop>
