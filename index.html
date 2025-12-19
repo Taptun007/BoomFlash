@@ -162,149 +162,48 @@ button{
 </div>
 
 <script>
-let done=false;
+let started = false;
 
-function start(){
-    if(done) return;
-    done=true;
+function start() {
+    if (started) return;
+    started = true;
 
-    const horror=document.getElementById("horrorMusic");
-    const happy=document.getElementById("happyMusic");
-
-    document.body.classList.add("shake");
-    horror.volume=1;
-    horror.play();
-
-    let fade=setInterval(()=>{
-        if(horror.volume>0.1){
-            horror.volume-=0.1;
-        }else{
-            clearInterval(fade);
-            horror.pause();
-            horror.currentTime=0;
-
-            happy.volume=0;
-            happy.play();
-
-            let fadeIn=setInterval(()=>{
-                if(happy.volume<1) happy.volume+=0.1;
-                else clearInterval(fadeIn);
-            },120);
-
-            document.getElementById("startScreen").style.display="none";
-            document.getElementById("messageScreen").style.display="flex";
-            fireworks();
-        }
-    },150);
-}
-
-function fireworks(){
-    for(let i=0;i<80;i++){
-        const f=document.createElement("div");
-        f.className="firework";
-        f.style.left=Math.random()*100+"vw";
-        f.style.top=Math.random()*100+"vh";
-        f.style.background=`hsl(${Math.random()*360},100%,60%)`;
-        f.style.setProperty("--x",(Math.random()*300-150)+"px");
-        f.style.setProperty("--y",(Math.random()*300-150)+"px");
-        document.body.appendChild(f);
-        setTimeout(()=>f.remove(),1200);
-    }
-}
-</script>
-
-</body>
-</html>  <source src="horror.mp3" type="audio/mpeg">
-</audio>
-
-<audio id="happyMusic" preload="auto" loop>
-  <source src="happy.mp3" type="audio/mpeg">
-</audio>
-
-<!-- ☠️ START SCREEN -->
-<div class="screen" id="startScreen">
-    <div class="skull">☠️</div>
-    <button onclick="handleClick()">If you have the courage, touch it</button>
-</div>
-
-<!-- ❤️ MESSAGE SCREEN -->
-<div class="screen" id="messageScreen">
-    <div class="heart">❤️</div>
-    <div class="msg" style="animation-delay:0s;">Oh nothing much, just wanted to say</div>
-    <div class="msg" style="animation-delay:1s;">🎉 Happy Birthday 🎂</div>
-    <div class="msg" style="animation-delay:2s;">Many many happy returns of the day 🎂</div>
-    <div class="msg" style="animation-delay:3s;">Be proud of what you did.</div>
-    <div class="msg" style="animation-delay:4s;">Be happy for what is happening.</div>
-    <div class="msg" style="animation-delay:5s;">Always look for the best in future.</div>
-    <div class="msg" style="animation-delay:6s;">Be happy for the rest of your life 💖</div>
-</div>
-
-<script>
-let clicked = false;
-
-function handleClick() {
-    if (!clicked) {
-        clicked = true;
-
-        const horror = document.getElementById("horrorMusic");
-        const happy = document.getElementById("happyMusic");
-
-        // 😱 Play horror first
-        horror.play();
-
-        // ⏳ After 1.2s switch to happy
-        setTimeout(() => {
-            horror.pause();
-            horror.currentTime = 0;
-
-            happy.play();
-
-            document.getElementById("startScreen").style.display = "none";
-            document.getElementById("messageScreen").style.display = "flex";
-        }, 1200);
-    }
-}
-</script>
-
-</body>
-</html><audio id="horrorMusic" autoplay loop>
-    <source src="Creepy Little Girl Singing Lalala  Scary Horror Voice (HD) (FREE).mp3" type="audio/mpeg">
-</audio>
-
-<audio id="happyMusic" loop>
-    <source src="happy happy happy.mp3" type="audio/mpeg">
-</audio>
-
-<!-- ☠️ START -->
-<div class="container" id="startScreen">
-    <div class="skull">☠️</div>
-    <button onclick="startSurprise()">If you have the courage, touch it</button>
-</div>
-
-<!-- ❤️ BIRTHDAY MESSAGE -->
-<div class="message-screen" id="messageScreen">
-    <div class="heart">❤️</div>
-    <div class="msg" style="animation-delay:0s;">Oh nothing much, just wanted to say</div>
-    <div class="msg" style="animation-delay:1s;">🎉 Happy Birthday 🎂</div>
-    <div class="msg" style="animation-delay:2s;">Many many happy returns of the day 🎂</div>
-    <div class="msg" style="animation-delay:3s;">Be proud of what you did.</div>
-    <div class="msg" style="animation-delay:4s;">Be happy for what is happening.</div>
-    <div class="msg" style="animation-delay:5s;">Always look for the best in future.</div>
-    <div class="msg" style="animation-delay:6s;">Be happy for the rest of your life 💖</div>
-</div>
-
-<script>
-function startSurprise() {
     const horror = document.getElementById("horrorMusic");
     const happy = document.getElementById("happyMusic");
 
-    horror.pause();
-    horror.currentTime = 0;
+    // Play horror clearly
+    horror.volume = 1;
+    horror.play();
 
-    happy.play();
+    // Wait 3 seconds so it is AUDIBLE
+    setTimeout(() => {
+        // Fade out horror
+        let fadeOut = setInterval(() => {
+            if (horror.volume > 0.1) {
+                horror.volume -= 0.1;
+            } else {
+                clearInterval(fadeOut);
+                horror.pause();
+                horror.currentTime = 0;
 
-    document.getElementById("startScreen").style.display = "none";
-    document.getElementById("messageScreen").style.display = "flex";
+                // Start happy
+                happy.volume = 0;
+                happy.play();
+
+                let fadeIn = setInterval(() => {
+                    if (happy.volume < 1) {
+                        happy.volume += 0.1;
+                    } else {
+                        clearInterval(fadeIn);
+                    }
+                }, 150);
+
+                document.getElementById("startScreen").style.display = "none";
+                document.getElementById("messageScreen").style.display = "flex";
+                fireworks();
+            }
+        }, 200);
+    }, 3000); // 👈 THIS is the key
 }
 </script>
 
